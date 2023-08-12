@@ -1,0 +1,29 @@
+check the box "trigger build remotely" in build triggers
+
+select a name for your token.
+now copy and paste http://jenkins.local:8080//job/demo%205/build?token=mytokenforjenkins
+to run your build remotely.
+
+This will perform a build remotely for you
+
+
+
+
+if we want to run this from another browser or shell,
+it will as for ID and password for my jenkins
+
+ex - 
+curl http://jenkins.local:8080//job/demo%205/build?token=mytokenforjenkins
+
+this is invalid.
+
+To solve this - 
+We install a plugin - Build Authourization Token Root
+
+and we use the URL - http://jenkins.local:8080/buildByToken/build?job=demo%205&token=mytokenforjenkins
+
+This can be executed from anywhere
+
+To run this is terminal we all \before & as this sends it to the background
+
+http://jenkins.local:8080/job/demo%205/

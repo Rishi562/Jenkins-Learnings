@@ -1,0 +1,12 @@
+We can run a clone command in the 
+build steps part by executing a shell.
+
+We can also check mark the build environment in the same config page of the projectswhere we can delete workspace before the build starts
+
+
+
+Alternatively,we can choose git in source code management,
+put our repo URL and ,
+this eleminates of executing a shell command and builds directly from our github
+
+Then we can add some commands in the shell if we want to see something

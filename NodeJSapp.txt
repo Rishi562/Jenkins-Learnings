@@ -1,0 +1,31 @@
+Why Node JS ?
+
+opensource
+crossplatform
+used to execute server side
+has an event driven architecture
+capable of asynchronous I/O 
+    this maskes nodejs very fast to responding to requests
+
+
+
+handy to run small projects as they do not need to compile
+
+
+How to build NodeJS app ?
+1. install dependencies(npm install)
+    this downloads and installs dependencies
+
+2. Run tests(npm test)
+    runs all node js tests
+    if test fails,dev should be notified
+
+3.Package it(but how ?)
+    package it in docker
+    create a container all binaries and libraries needed
+
+4.Distribute
+    distribute docker image using docker registry
+    dockerhub,AWS container registry
+
+

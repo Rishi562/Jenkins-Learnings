@@ -1,0 +1,53 @@
+Jenkins is an open source CI CD tool written in Java
+
+It is an automation server used to build and deliver software projects
+benefit - lots of plugins
+
+
+What is CICD ?
+CI is a practice in soft Engg , of merging all developer working
+copies to a shared mainline, several times a day
+
+CD is a soft wngg approach in which teams produce software in short cycles,
+ensuring that the software can be reliably released at any time.
+
+
+So,it means veryfing and publishing work by trigging automated builds and tests
+these automations can be done for every commit or at specific times of the day
+
+all work should be pushed to a version control which should 
+then be built and tested - this can be done by Jenkins
+
+
+Jenkins does not merge code or resolve conflicts.it can do the automated build the test.
+
+
+
+Jenkins provides a feedback loop back to the developor to fix build errors
+
+so this reduces the iteration of SDLC
+
+
+
+Part 2
+
+SDLC -
+1.Dev write code --> 2.build                          --->3. Test                                       -->4. Release                                                                      -->5. provision servers
+                  Feature & master branch               Diff types of test                              Packaging of software to release it                                              Deploy our package on linux or win servers where customer can now use it
+                  compile                               Aagin dev is notified if there are error        can  be packaged in archive or vm or zip or container depends on project
+                  if jenkins detects a build fail,
+                  it sends back to dev
+                   
+
+
+build test and release can be done via jenkins
+we can also build and test on jenkins and release with diff tool
+or we can use jenkins for whole SDLC
+
+
+
+
+
+
+
+
