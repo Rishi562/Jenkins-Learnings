@@ -1,0 +1,40 @@
+Type -1 
+String parameterized
+
+Here, we can ask the user to put some input
+This is called parameterized Job where user can 
+give to a job .
+
+This can be configured in the general section.
+After we define the parameters,
+they can also be changed.
+
+The build option will change to build with parameters
+
+Type - 2
+Boolean parameterized
+Choice parameterized
+
+We can use multiple parameters
+Here we have defined the parameters and printing them aslo
+by running the below in a shell script
+
+echo "Hello ${name}"
+echo "myboolpara ${myboolpara}"
+echo "deployto ${deployto}"
+
+Note-this just prints what we have already defined in the parameters
+
+Type - 3
+Multiline string and Password parameterized
+
+Define the below in the parameters and then print them
+
+echo "yourpassword is  ${yourpassword}"
+echo "multiline string is  ${hellothisisrishi}"
+
+Type - 4 
+File parameters
+
+name your file location as filepath
+It will then ask you to upload the file or select the file while performing build
