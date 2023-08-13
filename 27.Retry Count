@@ -1,0 +1,11 @@
+there can be issues while executing outr build,
+
+for example - Jenkins server is not responding
+internet connectivity issues
+wrong git URL
+
+We can then force it to rerty the job 3 stime before failing
+earlier,the job used to fail on the 1st time, but now it tries to 
+execute 3 times before failing
+
+There is 10 second dalay before each rerty

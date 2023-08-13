@@ -1,0 +1,11 @@
+for example, we have a sleep timer in our shell script 
+sleep 240 - sleeps for 4 minutes
+
+or if a job is stuck,
+the build will fail if if exceeds this time interval.
+
+This helps us to come out of the code if the job is stuck
+
+we can set this up in Build Environment section of the project
+
+So,we can either abort the job or fail the job

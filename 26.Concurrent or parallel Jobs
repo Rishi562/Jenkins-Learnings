@@ -1,0 +1,5 @@
+here we can setup if a project can run multiple builds/jobs
+
+We need to configure this in  the configure/general section.
+
+By default,there are 2 executors in Jenkins enabled.
