@@ -1,0 +1,7 @@
+Whenever we create a Project,a workspace is created for this project
+
+we can navigate to general and then change it
+
+we can change the workspace into any nfs server, so data will be saved in the nfs server
+
+we can also move the jar file or war file into the custon workspace
