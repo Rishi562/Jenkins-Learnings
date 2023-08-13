@@ -1,0 +1,15 @@
+Upstream is the parent job
+Downstream is the child job
+
+the job which gets triggered is the child
+and the job which triggers it is the parent
+
+
+we can turn on option in child in general/advanced
+block build when upstream is building
+so,even if someone triggers the child manually,it does not work 
+
+Similarly,
+we can turn on option in parent in general/advanced
+block build when upstream is building
+so,even if someone triggers the parent manually,it does not work 
