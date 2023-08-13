@@ -1,0 +1,11 @@
+SDLC - 
+
+
+1.Requirement Gathering and Analysis
+2.Design
+3.Development
+4.Testing
+4.Deployment
+5.Maintainence
+
+Devops - 

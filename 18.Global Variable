@@ -1,0 +1,14 @@
+We can use glocal variables also.
+
+We can aslo copy shell scripts from previous 
+projects by selecting copy from 
+in the create ne item page.
+
+This copies from the previous projects
+Here we have done copy for project 12 from 11
+
+We can define global variable sin Manage jenkins/system config
+and then put the name and value for it.
+
+If we access this from any script in any job,we can access this global varialbe
+we can also then change this variable from manage jenkins/system config

@@ -1,0 +1,7 @@
+in the build triggers we can set up at what times can
+the build be executed or at what time intervals
+will the build be executed.
+This is called Kron job 
+
+we can add H/2 * * * * in build periodically in build triggers
+

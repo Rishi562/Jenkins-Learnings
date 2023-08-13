@@ -1,0 +1,22 @@
+in Poll SCM also we need to specify the intervalsa
+at which the build is going to run.
+
+But this is used in accordance with Remote repo
+
+This job will be triggered when a new code is pushed towards our
+github account.
+This will be checked every 2 minutes by our 
+PollSCM H/2 * * * *
+
+If there is a new code in there,it will trigger.
+
+if there are no push on our github,the build will not trigger
+
+
+
+IMP - 
+GitHub hook trigger for GITScm polling
+
+Here the jenkins job will build whenever there is a new code pushed 
+onto github,for this we need jenkins running on public IP 
+Jenkins on aws or Azure can achieve this

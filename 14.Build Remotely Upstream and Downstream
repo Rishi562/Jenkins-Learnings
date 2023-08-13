@@ -1,0 +1,11 @@
+If a job has an upstream ,if we have a demo 7,and it has an upstream demo 5, it means demo 7 will be built automatically when demo 5 is built
+
+demo 5 is the upstream of demo 7
+
+
+we can have multiple projects set ups as upstream of 7.
+we can fail demo 6 which is upstream of 7 but still the 7 will built because we have set up build triggers in demo 7 that way
+
+
+To make a job unstable,we can put exit 10 in the execute shell of the job.
+Here we are making project 5 unstable

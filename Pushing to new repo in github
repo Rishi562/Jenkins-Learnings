@@ -1,0 +1,11 @@
+The error message "error: remote origin already exists" means that you have already added a remote repository called "origin" to your local Git configuration. This can happen if you have cloned a repository from GitHub or another Git server.
+
+The error message "ERROR: Repository not found. fatal: Could not read from remote repository. Please make sure you have the correct access rights and the repository exists." means that Git was unable to find the remote repository that you are trying to push to. This can happen if the remote repository does not exist, or if you do not have the correct access rights to it.
+
+To fix this problem, you need to remove the existing remote repository called "origin" from your local Git configuration. You can do this by running the following command:
+
+git remote rm origin
+Once you have removed the existing remote repository, you can add the new remote repository by running the following command:
+
+git remote add origin git@github.com:Rishi562/Jenkins-Learnings.git
+Now you should be able to push your changes to the remote repository without any problems.

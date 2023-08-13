@@ -1,0 +1,10 @@
+These are defined by Jenkins and these can be used while executing shell Script
+These can be found when we select execute shell as build steps
+
+
+name=Rishi
+echo "hello,my name is ${name}"
+echo "Build ID is ${BUILD_ID}"
+echo "Job name is ${JOB_NAME}"
+
+
