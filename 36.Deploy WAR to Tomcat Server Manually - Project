@@ -73,19 +73,21 @@ now goto tomcat manager in the web and it will ask for sign in.
 put anything and sign in and then cancel
 
 now goto cd /etc/tomcat9/
-and nano into tomcat-users.xml
+and nano tomcat-users.xml
 
 paste the below which was asked on the tomcat server web
-<role rolename="manager-gui"/>
-<user username="tomcat" password="s3cret" roles="manager-gui"/>
+<role rolename="admin-gui,manager-gui,manager-script,manager-jmx,manager-status,admin-gui"/>
+<user username="admin" password="password" roles="admin-gui,manager-gui,manager-script"/>
+
 i have changed both to admin
+
 <role rolename="manager-gui"/>
-<user username="admin" password="admin" roles="manager-gui"/>
-put it before </tomcat-users>
+<role rolename="admin-gui,manager-gui,manager-script,manager-jmx,manager-status,admin-gui"/>
+<user username="admin" password="password" roles="admin-gui,manager-gui,manager-script"/>
 
 
 restart tomcat server now with service tomcat9 restart
-service tomcat9 ststus - this gives us the ststus
+service tomcat9 ststus - this gives us the status
 
 
 now sign in, voila!

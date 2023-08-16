@@ -1,0 +1,6 @@
+IMPORTANT - the jenkins server will not connect with tomcat while uploading artifact to deploytotest tomcat server 
+unless we make changes to tomcat-users.xml
+located at cd /opt/tomcat/conf/
+use this - 
+<role rolename="admin-gui,manager-gui,manager-script,manager-jmx,manager-status,admin-gui"/>
+<user username="admin" password="password" roles="admin-gui,manager-gui,manager-script"/>

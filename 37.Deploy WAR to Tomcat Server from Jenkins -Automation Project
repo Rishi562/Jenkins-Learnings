@@ -1,3 +1,6 @@
+spin 2 ubuntu machines on aws,
+install and configure tomcat9 on both
+
 Install a Maven integration and deploy to container and build pipeline Plugin first into Jenkins 
 
 
@@ -12,3 +15,49 @@ after below is created, add a post build action to run the build project
 
 now create a build project for the same,in build , put install. this will create a build for the project
 make sure to add source code as git in both and put this https://github.com/Rishi562/spring-boot-war-example.git
+branch to build */master - this is in git
+
+When this build will run this will create a .war file which will be displayed by Jenkins
+Before that,make changes in build project - 
+post build - archive to artifact
+files to archive - put - **/*.war
+Now set downstream as Deploytotest ptoject
+goals and options - install
+build trigger - Build whenever a snapshot depedency is built
+
+
+now the created war file should be eployed to our deploytotest project and linux machine
+to pickup this war file/archive/artifact, install plugin - copy artifact       --- "archive" specifically relates to the action of preserving files in a Jenkins 
+                                                                                    job's workspace after a build, whereas "artifact" refers to the build outputs 
+                                                                                    that are intended to be shared or used beyond the build process
+                                                                                    The terms are closely related, and in many cases, archiving is used as a way to create
+                                                                                    artifacts for distribution or reference.
+                          
+to do this , go back to build project,configure and make changes,allow to copy artifacts.
+Then specify the projects who can copy
+
+Step - 3 
+
+make changes into deploytotest.
+build step - copy artifact from other project
+also put pws and ls after this to see where it is stored
+generally - jenkins/workspace
+
+Post build action in same deploytotest - archive the artifacts
+**/*.war
+Then another post build - Deploy war/ear to container
+**/*.war
+
+Context path - /app - this means we can access it as -ipaddress/app
+
+Containers - 
+give username and password of tomcat server and add tomcat9details as ID
+now give the url of server - http://13.127.103.87:8080
+move deploy other project earlier configured to last by dragging it
+
+IMPORTANT - the jenkins server will not connect with tomcat while uploading artifact to deploytotest tomcat server 
+unless we make changes to tomcat-users.xml
+located at cd /opt/tomcat/conf/
+use this - 
+<role rolename="admin-gui,manager-gui,manager-script,manager-jmx,manager-status,admin-gui"/>
+<user username="admin" password="password" roles="admin-gui,manager-gui,manager-script"/>
