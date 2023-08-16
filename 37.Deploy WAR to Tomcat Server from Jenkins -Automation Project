@@ -1,0 +1,14 @@
+Install a Maven integration and deploy to container and build pipeline Plugin first into Jenkins 
+
+
+Goto Global tool config and add maven 
+let it be install automatically
+
+
+create a maven project from new item.
+in the build - goals, put - test. this will translate as mvn test
+
+after below is created, add a post build action to run the build project
+
+now create a build project for the same,in build , put install. this will create a build for the project
+make sure to add source code as git in both and put this https://github.com/Rishi562/spring-boot-war-example.git

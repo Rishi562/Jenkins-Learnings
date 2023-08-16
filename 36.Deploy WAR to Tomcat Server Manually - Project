@@ -1,0 +1,114 @@
+Things to do in a project in Jenkins
+
+1. Unit Tests
+2. Code Quality check  -> Sonarcube
+3. Build
+4. Deploy on testing environment
+5. Deploy on staging environment
+6. Deploy on production environment
+
+
+We will not be using the staging environment in this one
+
+
+
+1. ssh on a test machine first,run test and build 
+
+We will create a ubuntu ec2 on aws
+now open ssh into this by using open ssh or remmina
+update and upgrade the instance
+install git and maven
+now clone the forked repo from your github into this machine
+use ls command will show the cloned project
+now cd into this project where the pom.cml file is located
+
+and run -- mvn test
+This command performs unit tests on the project
+and creates a folder named target
+
+Now,we have to create the build
+run - mvn install
+This command creates a WAR file of our existing project
+inside the target folder
+Now,
+Copy the war file from there to tmp folder
+using 
+cp hello-world-0.0.1-SNAPSHOT.war /tmp/
+
+
+2. Deploy this WAR file on a Tomcat Server
+
+install tomcat on the machine with sudo apt install tomcat9
+ make changes in aws inbound rules,
+ allow custom tcp inbound on port 8080 from 0000./0
+
+ make sure tomcat is running on server with sudo systemctl status tomcat9
+
+ We can access this now on our local machine from public ip address : 8080
+
+ now again,the war file can be deployed by 2 methods,gui or bash
+
+ BASH -  cd /var/lib/tomcat9/webapps -goto this directory
+now switch to root user with sudo -i 
+now go back to /var/lib/tomcat9/webapps as a root user 
+with cd /var/lib/tomcat9/webapps
+
+now copy the war file in this directory with 
+cp /tmp/hello-world-0.0.1-SNAPSHOT.war ./app.war
+this will copy and rename the app to app.war and also create a folder of the same name 
+this can be accessed on http://13.232.193.112:8080/app/
+
+GUI - 
+delete the existing app.war first,this should in turn also remove the folder --- delete using rm -rvf app.war , stay in that directory to delete it
+                                                                                -rm: This is the command used to remove files or directories.
+                                                                                -rvf: These are options that modify the behavior of the rm command:
+                                                                                -r: Recursively remove directories and their contents.
+                                                                                -v: Verbose mode, which displays more information about the files and directories being removed.
+                                                                                -f: Force mode, which removes files without prompting for confirmation.
+
+
+first install tomcat admin using sudo apt install tomcat9-admin
+
+now goto tomcat manager in the web and it will ask for sign in.
+put anything and sign in and then cancel
+
+now goto cd /etc/tomcat9/
+and nano into tomcat-users.xml
+
+paste the below which was asked on the tomcat server web
+<role rolename="manager-gui"/>
+<user username="tomcat" password="s3cret" roles="manager-gui"/>
+i have changed both to admin
+<role rolename="manager-gui"/>
+<user username="admin" password="admin" roles="manager-gui"/>
+put it before </tomcat-users>
+
+
+restart tomcat server now with service tomcat9 restart
+service tomcat9 ststus - this gives us the ststus
+
+
+now sign in, voila!
+
+here we can select the war file and deploy it directly
+
+As,we have the war file on our amazon server,we have to bring it to our local machine
+install filezilla to do so 
+
+Here we are using the same Reminna -great tool!
+as filezilla uses a ppk file and we will need to convert it into ppk from pem using puttygen
+and we dont have so much time
+
+download the .war file 
+now select the war file from the downloaded location and deploy it in the web,it will take some time
+
+in the application list next,our war file wll be listed.
+If we click on this,the application can be accessed
+
+this is also doing the same thing we did manually
+if we goto var/lib/tomcat9/webapps , we can find our war file
+
+Note - We have done all steps manually above.
+If there are any changes in code,we will have to build it test it and deploy it again on test server.
+So, we need to automate this, so that if there are changes in code,we can make it a smooth sail.
+

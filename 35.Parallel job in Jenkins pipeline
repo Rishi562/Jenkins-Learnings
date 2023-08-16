@@ -1,0 +1,7 @@
+While in post build actions,also include another project that you want to run
+now both will run parallely
+
+This is parallel job in jenkinsthis saves time
+
+There are further concepts of master and slave
+

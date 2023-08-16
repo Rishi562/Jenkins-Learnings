@@ -1,0 +1,16 @@
+Create 2 projects
+In the 1st project,choose post build options and choose build other project
+and then select the 2nd project there 
+
+
+
+Download the build pipeline plugin from manage jenkins - this is one way to do it
+
+Click on + icon on the right of All tab in the dashboard to create a view
+Choose create a pipeline by choosing build pipeline view
+
+Now goto select initial job and choose the 1st job
+Now save it and trigger the pipeline
+This will now create a build and create a WAR or JAR file
+
+This can now be deployed to the test environment

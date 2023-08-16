@@ -1,0 +1,6 @@
+While selecting build other project in the post
+build action, select build (manual step) option.
+
+This is Delivery where a manual intervention is required to run one part of the pipeline.
+
+If this was run automatically,it was deployment
