@@ -1,5 +1,12 @@
 spin 2 ubuntu machines on aws,
 install and configure tomcat9 on both
+IMPORTANT - the jenkins server will not connect with tomcat while uploading artifact to deploytotest tomcat server 
+unless we make changes to tomcat-users.xml
+located at cd /etc/tomcat9
+use this - 
+<role rolename="admin-gui,manager-gui,manager-script,manager-jmx,manager-status,admin-gui"/>
+<user username="admin" password="admin" roles="admin-gui,manager-gui,manager-script"/>
+
 
 Install a Maven integration and deploy to container and build pipeline Plugin first into Jenkins 
 
@@ -57,7 +64,37 @@ move deploy other project earlier configured to last by dragging it
 
 IMPORTANT - the jenkins server will not connect with tomcat while uploading artifact to deploytotest tomcat server 
 unless we make changes to tomcat-users.xml
-located at cd /opt/tomcat/conf/
+located at cd /etc/tomcat9
 use this - 
 <role rolename="admin-gui,manager-gui,manager-script,manager-jmx,manager-status,admin-gui"/>
-<user username="admin" password="password" roles="admin-gui,manager-gui,manager-script"/>
+<user username="admin" password="admin" roles="admin-gui,manager-gui,manager-script"/>
+
+
+STEP - 4 
+Now configure deploytoProd machine
+
+add build steps - 
+copy artifact 
+
+add post build - 
+deploy to container
+**/*.war
+context path -/app
+select tomcat9 and app production url - http://3.6.38.174:8080
+
+we need to make the tomcat-users.xml changes on prod server also
+also remember to visit the tomcat server and sign in 1st and cancel the sign in
+
+Remember to give permission in deploytotest to allow copying of artifacts
+
+
+If we make commit changes into github,the test pipeline will now run because 
+jenkins is setup to see if there are changes every 2 minutes.
+we can use webhook , here we are using poll scm as we are running jenkins locally and
+it does not have a public IP yet
+
+so the pipeline is now testing,building,deploying to test server automatically
+
+we can aslo setup that changes are pushed to build if test case passes more than 90%
+only after this the build of artifact will happen
+
