@@ -7,29 +7,28 @@ pipeline{
             steps{
                 echo "========executing A========"
             }
+        }
+        {
+            stage("B"){
+                steps{
+                    echo "========executing A========"
+                }
             }
         }
-        {stage("B"){
-            steps{
-                echo "========executing A========"
-            }
-        } 
-            }
-        }{
-        stage("C"){
-            steps{
-                echo "========executing A========"
+        {
+            stage("C"){
+                steps{
+                    echo "========executing A========"
+                }
             }
         }
-            }{
-        
-        stage("D"){
-            steps{
-                echo "========executing A========"
+        {
+            stage("D"){
+                steps{
+                    echo "========executing A========"
+                }
             }
         }
-            }
-        
     
     post{
         always{
@@ -42,3 +41,4 @@ pipeline{
             echo "========pipeline execution failed========"
         }
     }
+}
