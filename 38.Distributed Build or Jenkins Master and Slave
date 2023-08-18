@@ -1,0 +1,52 @@
+currently we can run only 2 jobs
+as we can see in build executor systemctl
+
+goto manage/configure change no. of executor to change this
+
+But in real life,there are around 50 projects jobs running
+so we can get memory error
+
+due to this,we have jenkins master slave
+
+make 1 master and other slaves
+it is the job of the master to distribute the project jobs
+and on which machine will it be built
+
+it aslo determines slave node status,running or down
+the output is given back to master to show to the user
+
+along with,master can also run jobs with slaves
+
+Slaves - 
+1.listens to requests from master
+2.perform the task
+3.slave can run on variety of OS -win/linux/docker/machine
+
+
+How to add a slave node - 
+
+Mange/manage nodes
+click new node - name it anythinng
+choose permanent agent
+add discription and name it
+define no. of executors
+
+root directory - /var/jenkins  - we can give anypath, we will furhter need to create /jenkins folder
+further, make the owner of this folder to the user which will be setup in credentials
+if username is ubuntu ,
+then sudo chown ubuntu:ubuntu jenkins/
+but it should exist in the jenkins slave
+add labels
+usage default
+
+make sure your linux machine has java installed
+
+launch method -  ass ssh creds and password
+use a verification stratergy ---------------------------------disable "Know hosts file verification strategy" by setting "Non verifying Verification Strategy", but it is insecure.
+                                                               This will connect directly and will not give a hostkey headache
+default availability
+save it
+
+now we have added a slave with 2 executors , voila!
+
+

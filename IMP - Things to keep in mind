@@ -6,3 +6,19 @@ use this -
 <user username="admin" password="admin" roles="admin-gui,manager-gui,manager-script"/>
 
 
+Building end to end pipeline - refer to 36 and 37
+
+Slave - 
+
+While creating credentials for slave
+disable "Know hosts file verification strategy" by setting "Non verifying Verification Strategy", but it is insecure.
+This will connect directly and will not give a hostkey headache
+
+root directory - /var/jenkins  - we can give anypath, we will furhter need to create /jenkins folder
+further, make the owner of this folder to the user which will be setup in credentials
+if username is ubuntu ,
+then sudo chown ubuntu:ubuntu jenkins/
+but it should exist in the jenkins slave
+
+
+

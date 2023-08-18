@@ -1,0 +1,17 @@
+As we have configured the slave node previously
+as 
+usage - use this  node as much as possible
+
+so any new build we perform will run on these nodes
+But,it does not mean that priority will be given to this node,
+use as much means it will try to use this node as much as possible 
+but not assign all jobs to slave first
+
+if we run multiple jobs any job can run anywhere.
+
+to configure the jobs to run on master or slave
+goto the job/configure and in general select restrict job
+put the label for the job
+now the job will run only on slave/master
+
+The output will be displayed on master only of all slave output
