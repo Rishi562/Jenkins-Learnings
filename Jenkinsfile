@@ -1,35 +1,31 @@
 pipeline{
-    agent{
-        label "any"
-    }
+    agent any
     stages{
         stage("A"){
             steps{
                 echo "========executing A========"
             }
+            
         }
-        {
-            stage("B"){
-                steps{
-                    echo "========executing A========"
-                }
+        stage("B"){
+            steps{
+                echo "========executing A========"
             }
+            
         }
-        {
-            stage("C"){
-                steps{
-                    echo "========executing A========"
-                }
+        stage("C"){
+            steps{
+                echo "========executing A========"
             }
+            
         }
-        {
-            stage("D"){
-                steps{
-                    echo "========executing A========"
-                }
+        stage("D"){
+            steps{
+                echo "========executing A========"
             }
+            
         }
-    
+    }
     post{
         always{
             echo "========always========"
@@ -40,6 +36,5 @@ pipeline{
         failure{
             echo "========pipeline execution failed========"
         }
-    }
     }
 }
